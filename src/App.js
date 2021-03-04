@@ -68,16 +68,24 @@ class App extends React.Component {
                     type="text"
                     defaultValue={type[0]}
                     onChange={(event) => {
-                      const newIncome = [...this.state.income].splice(
-                        index,
-                        1,
-                        [event.target.value, type[1]]
-                      );
+                      const newIncome = this.state.income.map((el, i) => {
+                        if (i === index) el = [event.target.value, type[1]];
+                        return el;
+                      });
                       this.setState({income: newIncome});
-                      console.log(newIncome);
                     }}
                   />
-                  <input type="number" defaultValue={type[1]} />
+                  <input
+                    type="number"
+                    defaultValue={type[1]}
+                    onChange={(event) => {
+                      const newIncome = this.state.income.map((el, i) => {
+                        if (i === index) el = [type[0], event.target.value];
+                        return el;
+                      });
+                      this.setState({income: newIncome});
+                    }}
+                  />
                 </ul>
               );
             })}
@@ -99,6 +107,11 @@ class App extends React.Component {
           <button
             onClick={() => {
               this.setState({editing: false});
+              this.setState({
+                total: this.state.income.reduce((sum, el) => {
+                  return sum + Number(el[1]);
+                }, 0),
+              });
             }}
           >
             Save
