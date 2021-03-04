@@ -98,6 +98,7 @@ class App extends React.Component {
                   <h4>
                     {type[0]} -${type[1]}
                   </h4>
+                  <button onClick={() => this.setState({income: this.state.income.filter((el, i) => i !== index)})}>Remove</button>
                 </ul>
               );
             })}
