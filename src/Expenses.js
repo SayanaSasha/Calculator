@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Expenses extends React.Component {
     constructor() {
@@ -67,6 +68,7 @@ class Expenses extends React.Component {
                 </li>
                 <hr />
                 <h4>Total: {this.state.total}</h4>
+                <Link to="/savings"><button>Next</button></Link>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 
 class Debt extends React.Component {
@@ -9,7 +10,8 @@ class Debt extends React.Component {
             typeOfDebt: '',
             amountOfDebt: '',
             total: 0,
-            editing: false
+            editing: false,
+            haveDebt: false
         };
     }
 
@@ -17,6 +19,8 @@ class Debt extends React.Component {
     render() {
         return (
             <div>
+            {this.state.haveDebt ?
+                <div>
                 <form>
                     <p> Please enter here all loans, credit cards and debts</p>
                     <input type="text"
@@ -37,6 +41,21 @@ class Debt extends React.Component {
                     />
                     <button>Ok</button>
                 </form>
+                {/* need to know next component that we will see in browser, tabs with all info */}
+                {/* <Link to="/"> */}
+                <button>Next</button>
+                {/* </Link> */}
+            </div> :
+            <div>
+            <h3>Do you have any debt?</h3>
+            <button onClick={() => this.setState({haveDebt: true})}>YES</button>
+            {/* need to know next component that we will see in browser, tabs with all info */}
+            {/* <Link to="/"> */}
+              <button>No, go to the next step!</button>
+            {/* </Link> */}
+            </div>
+            }
+            
             </div>
         )
     }
