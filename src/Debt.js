@@ -5,7 +5,7 @@ class Debt extends React.Component {
     constructor() {
         super();
         this.state = {
-            income: [],
+            debt: [],
             typeOfDebt: '',
             amountOfDebt: '',
             total: 0,

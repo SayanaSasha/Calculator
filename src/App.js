@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import Debt from "./Debt";
 import Expenses from "./Expenses";
+import Saving from "./Saving";
 
 
 class App extends React.Component {
@@ -135,6 +136,8 @@ class App extends React.Component {
                         <hr/>
                     </div>}
                 <Debt/>
+                <hr/>
+                <Saving />
 
             </div>
         );
