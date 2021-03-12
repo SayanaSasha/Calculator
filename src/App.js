@@ -4,7 +4,7 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Debt from './Debt';
 import Expenses from './Expenses';
 import Saving from './Saving';
-import Incomes from './Incomes';
+import ConnectedIncome from './Incomes';
 import Start from './Start';
 
 class App extends React.Component {
@@ -18,7 +18,7 @@ class App extends React.Component {
           </div>
           <Switch>
             <Route exact path="/" component={Start} />
-            <Route path="/incomes" component={Incomes} />
+            <Route path="/incomes" component={ConnectedIncome} />
             <Route path="/expenses" component={Expenses} />
             <Route path="/savings" component={Saving} />
             <Route path="/debt" component={Debt} />
