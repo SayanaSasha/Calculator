@@ -1,19 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {addIncome, editIncome, removeIncome} from './store'
 
-class Income extends React.Component {
-  constructor() {
-    super();
+class Income extends React.Component { 
+  constructor (props) {
+    super(props)
     this.state = {
-      income: [],
       typeOfIncome: '',
       amountOfIncome: '',
-      total: 0,
       editing: false
     };
   }
-
+  
   render() {
+
+    const incomes = this.props.incomes
+    const total = incomes.reduce((sum, el) => {
+      return sum + Number(el[1]);
+    }, 0)
     return (
       <div>
         <h2>Enter your income here</h2>
@@ -38,17 +43,7 @@ class Income extends React.Component {
 
           <button
             onClick={(event) => {
-              event.preventDefault();
-              this.setState({
-                income: [
-                  ...this.state.income,
-                  ...[[this.state.typeOfIncome, this.state.amountOfIncome]],
-                ],
-              });
-              this.setState({
-                total:
-                  Number(this.state.total) + Number(this.state.amountOfIncome),
-              });
+              this.props.addIncome(this.state.typeOfIncome, this.state.amountOfIncome)
               this.setState({typeOfIncome: '', amountOfIncome: ''});
             }}
           >
@@ -58,29 +53,21 @@ class Income extends React.Component {
         <h3>All type of income</h3>
         {this.state.editing ? (
           <li style={{listStyleType: 'none'}}>
-            {this.state.income.map((type, index) => {
+            {incomes.map((type, index) => {
               return (
                 <ul key={index}>
                   <input
                     type="text"
                     defaultValue={type[0]}
                     onChange={(event) => {
-                      const newIncome = this.state.income.map((el, i) => {
-                        if (i === index) el = [event.target.value, type[1]];
-                        return el;
-                      });
-                      this.setState({income: newIncome});
+                      this.props.editIncome(index, event.target.value, type[1])
                     }}
                   />
                   <input
                     type="number"
                     defaultValue={type[1]}
                     onChange={(event) => {
-                      const newIncome = this.state.income.map((el, i) => {
-                        if (i === index) el = [type[0], event.target.value];
-                        return el;
-                      });
-                      this.setState({income: newIncome});
+                      this.props.editIncome(index, type[0], event.target.value)
                     }}
                   />
                 </ul>
@@ -89,19 +76,15 @@ class Income extends React.Component {
           </li>
         ) : (
           <li style={{listStyleType: 'none'}}>
-            {this.state.income.map((type, index) => {
+            {incomes.map((type, index) => {
               return (
                 <ul key={index}>
                   <h4>
-                    {type[0]} -${type[1]}
+                    {type[0]} - ${type[1]}
                   </h4>
                   <button
                     onClick={() =>
-                      this.setState({
-                        income: this.state.income.filter(
-                          (el, i) => i !== index
-                        ),
-                      })
+                      this.props.removeIncome(index)
                     }
                   >
                     Remove
@@ -115,11 +98,6 @@ class Income extends React.Component {
           <button
             onClick={() => {
               this.setState({editing: false});
-              this.setState({
-                total: this.state.income.reduce((sum, el) => {
-                  return sum + Number(el[1]);
-                }, 0),
-              });
             }}
           >
             Save
@@ -128,7 +106,7 @@ class Income extends React.Component {
           <button onClick={() => this.setState({editing: true})}>Edit</button>
         )}
         <hr />
-        <h4>Total: ${this.state.total}</h4>
+        <h4>Total: ${total}</h4>
         <hr />
         <Link to="/expenses"><button>Next</button></Link>
       </div>
@@ -136,5 +114,16 @@ class Income extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  incomes: state.incomes
+})
 
-export default Income
+const mapDispatchToProps = dispatch => ({
+  addIncome: (type, amount) => dispatch(addIncome(type, amount)),
+  removeIncome: (index) => dispatch(removeIncome(index)),
+  editIncome: (idx, type, amount) => dispatch(editIncome(idx, type, amount))
+})
+
+const ConnectedIncome = connect(mapStateToProps, mapDispatchToProps)(Income)
+
+export default ConnectedIncome
