@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import React from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Debt from './Debt';
@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="main">
           <div>
             {/* {/* header, stick it to the top} */}
             <h1>Financial Calculator</h1>
