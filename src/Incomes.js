@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import App from "./App.css";
 
 class Income extends React.Component {
   constructor() {
