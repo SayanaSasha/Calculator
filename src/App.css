@@ -2,14 +2,6 @@
   text-align: center;
 }
 
-.main {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: rgb(73, 79, 82);
-  color: white;
-}
 
 
 

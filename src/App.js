@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Debt from './Debt';
 import Expenses from './Expenses';
 import Saving from './Saving';
@@ -13,7 +13,11 @@ class App extends React.Component {
       <Router>
         <div className="main">
           <div>
-            {/* {/* header, stick it to the top} */}
+            <Link to='/'>Home</Link> {' '}
+            <Link to='/incomes'>Income</Link> {' '}
+            <Link to='/expenses'>Expenses</Link> {' '}
+            <Link to='/savings'>Savings</Link> {' '}
+            <Link to='/debt'>Debt</Link> {' '}
             <h1>Financial Calculator</h1>
           </div>
           <Switch>

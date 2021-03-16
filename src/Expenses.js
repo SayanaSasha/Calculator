@@ -47,7 +47,7 @@ class Expenses extends React.Component {
                                 total:
                                     Number(this.state.total) + Number(this.state.amountOfExp),
                             });
-                            this.setState({typeOfExp: '', amountOfExp: 0});
+                            this.setState({typeOfExp: '', amountOfExp: ''});
                         }}
                     >
                         Ok

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d234a339-d2bb-4720-ba37-5a1a6da9f3d0" name="Default Changelist" comment="Updated component Debt">
+    <list default="true" id="d234a339-d2bb-4720-ba37-5a1a6da9f3d0" name="Default Changelist" comment="Updated component Expenses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Expenses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Expenses.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1614804165328</updated>
       <workItem from="1614804168781" duration="3626000" />
-      <workItem from="1615407038391" duration="16387000" />
+      <workItem from="1615407038391" duration="18925000" />
     </task>
     <task id="LOCAL-00001" summary="Added component Saving">
       <created>1615415663259</created>
@@ -79,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615789120943</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated component Expenses">
+      <created>1615873653530</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615873653530</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +109,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added component Saving" />
     <MESSAGE value="Updated component Debt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated component Debt" />
+    <MESSAGE value="Updated component Expenses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated component Expenses" />
   </component>
 </project>
